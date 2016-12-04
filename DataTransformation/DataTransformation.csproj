@@ -43,8 +43,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgeParser.cs" />
+    <Compile Include="CityParser.cs" />
+    <Compile Include="FlagsParser.cs" />
+    <Compile Include="IParser.cs" />
+    <Compile Include="NameParser.cs" />
+    <Compile Include="Parser.cs" />
+    <Compile Include="ParserFactory.cs" />
     <Compile Include="Person.cs" />
-    <Compile Include="PersonParser.cs" />
+    <Compile Include="PersonBuilder.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

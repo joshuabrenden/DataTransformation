@@ -11,7 +11,7 @@ namespace DataTransformation
     {
         static void Main(string[] args)
         {
-            PersonParser parser = new PersonParser(getInputFileString());
+            PersonBuilder parser = new PersonBuilder(getInputFileString());
             List<Person> persons = parser.getPersons();
 
             foreach (Person person in persons)

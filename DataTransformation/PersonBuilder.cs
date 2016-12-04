@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace DataTransformation
 {
-    class PersonParser
+    class PersonBuilder
     {
         private string rawPersonText;
         public List<Person> persons = new List<Person>();
 
-        public PersonParser(String rawPersonText)
+        public PersonBuilder(String rawPersonText)
         {
             this.rawPersonText = rawPersonText;
             createPersons();
@@ -87,7 +87,7 @@ namespace DataTransformation
 
         private string parsekey(string infoLine)
         {
-            return infoLine.Substring(0, infoLine.IndexOf(")") + 1);
+            return infoLine.Substring(1, infoLine.IndexOf(")")).ToLower();
         }
 
         private string parseValue(string infoLine)
@@ -123,6 +123,31 @@ namespace DataTransformation
         public List<Person> getPersons()
         {
             return persons;
+        }
+
+        private class ParsedPerson
+        {
+            private Dictionary<string, string> personData;
+            private Person person = new Person();
+
+            public ParsedPerson(Dictionary<string, string> personData)
+            {
+                this.personData = personData;
+            }
+
+            private void createPerson()
+            {
+                person.name = personData["name"];
+                person.age = personData["age"];
+                person.city = personData["city"];
+                person.state = personData["state"];
+  
+            }
+
+            public Person getPerson()
+            {
+                return person;
+            }
         }
     }
 }
